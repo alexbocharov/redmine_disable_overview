@@ -1,0 +1,3 @@
+# Russian strings go here for Rails i18n
+ru:
+  project_module_redmine_disable_overview: "Отключить обзор проекта"
