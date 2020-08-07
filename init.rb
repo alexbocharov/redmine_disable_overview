@@ -4,16 +4,16 @@ Redmine::Plugin.register :redmine_disable_overview do
   name 'Disable overview'
   author 'Alexander Bocharov'
   description 'This plugin disables project overview'
-  version '0.1.0'
+  version '0.2.0'
   url 'https://github.com/alexbocharov/redmine_disable_overview.git'
 
-  requires_redmine :version_or_higher => '3.4'
+  requires_redmine :version_or_higher => '4.0.0'
 
   project_module :redmine_disable_overview do |map|
     map.permission :overview_permission, {:projects => :show}
   end
 
-  ActionDispatch::Callbacks.to_prepare do
+  ActiveSupport::Reloader.to_prepare do
     require_dependency 'application_controller'
     require_dependency 'redmine/access_control'
 
@@ -36,7 +36,7 @@ Redmine::Plugin.register :redmine_disable_overview do
         end
       end
 
-      before_filter :verify_module_activated
+      before_action :verify_module_activated
       private :verify_module_activated
     end
 
@@ -47,7 +47,7 @@ Redmine::Plugin.register :redmine_disable_overview do
         end
       end
 
-      before_filter :verify_module_activated
+      before_action :verify_module_activated
       private :verify_module_activated
     end
   end
