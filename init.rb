@@ -4,7 +4,7 @@ Redmine::Plugin.register :redmine_disable_overview do
   name 'Disable overview'
   author 'Alexander Bocharov'
   description 'This plugin disables project overview'
-  version '0.0.1'
+  version '0.1.0'
   url 'https://github.com/alexbocharov/redmine_disable_overview.git'
 
   requires_redmine :version_or_higher => '3.4'
